@@ -1,0 +1,53 @@
+<section class="content">
+	<div class="row" >
+		<div class="col-md-12">
+			<div class="box box-solid box-info">
+				<div class="box-header">
+					<h1 class="box-title">Upload Hiring Manager(via csv file)</h1>
+				</div>
+				<div class="box-body">
+					<div class="row" class="ng-scope">
+						<div class="col-sm-12" ng-controller="hiringmanagerUploadCtrl" class="ng-scope">
+							<h4>XLSX Reader</h4>
+							<form action="" method="post" enctype="multipart/form-data" class="ng-pristine ng-invalid ng-invalid-required">
+								<div class='form-group'>
+									<label for='excel_file'>Excel File</label>
+									<input type="file" name="excel_file" accept=".xlsx" onchange="angular.element(this).scope().fileChanged(this.files);" required="true">
+								</div>
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" ng-model="showPreview" ng-change="showPreviewChanged();">Show preview of excel file
+									</label>
+								</div>
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" ng-model="showJSONPreview" class="ng-pristine ng-valid">Show JSON preview of selected sheet
+									</label>
+								</div>
+								<div ng-show="isProcessing" style="display: none;">
+									<span>Processing ...</span>
+								</div>
+								<div class='form-group'>
+									<label for='sheet_name'>Sheet Name</label>
+									<select id="sheet_name" class="form-control ng-pristine ng-invalid ng-invalid-required" ng-change="updateJSONString()" ng-model="selectedSheetName" required="required" ng-required="true" ng-options="sheetName as sheetName for (sheetName, sheetData) in sheets">
+										<option value="">---- Select a sheet ----</option>
+									</select>
+								</div>
+								<input type="hidden" name="sheet_name" value="">
+								<input type="submit" value="Submit">
+								<div ng-show="showJSONPreview">
+									<h4>JSON Preview of selected sheet</h4>
+									<pre class="langauge-javascript"><code class="ng-binding"></code></pre>
+								</div>
+								<div ng-show="showPreview" style="display: none;">
+									<!-- ngRepeat: (sheetName, sheetData) in sheets -->
+								</div>
+							</form>
+						</div>
+					</div>
+				</div><!-- /.box-body -->
+			</div><!-- /.box-body-->
+		</div>
+	</div>
+	<div ng-include src="'/static/dashboard/js-xlsx-master/index.html'"></div>
+</section>

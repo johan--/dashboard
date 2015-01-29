@@ -1,0 +1,2 @@
+-module(rdks, [Id, Date::string(), Coords::string(), Hightemp::string(), Lowtemp::string()]).
+-compile(export_all).

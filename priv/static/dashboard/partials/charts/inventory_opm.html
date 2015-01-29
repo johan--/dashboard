@@ -1,0 +1,63 @@
+<section class="content" ng-controller="ChartCtrl_Inventory_Opm">
+	<div>
+		<a class="carousel-control left" href="#/hiring_manager" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+	</div>
+	<section class="col-md-10 col-md-offset-1 connectedSortable">
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li class="active">Inventory OPM</li>
+		</ol>
+		<div id="inventory_opm" style="height: 500px"></div>
+		</div>
+		<h4 class="box-title" ng-repeat="name in currentstatusName">Current Status/Milestone : <b><u><i><font color="#3c8dbc">{{ name.current_status_milestone }}</font></i></u></b></h4>
+		<div class="box-body table-responsive">
+			<table id="hiringTable" class="table table-bordered table-striped" >
+				<tbody>
+					<tr ng-show="isShown"O>
+						<th>Organization</th>
+						<th>Hiring Tracking ID</th>
+						<th>HR Speclst Assigned To</th>
+						<th>SEC Priority</th>
+						<th>Position Title</th>
+						<th>PD/MR#</th>
+						<th>Point of Contact</th>
+						<th>Grade</th>
+						<th>Status</th>
+						<th>ETC</th>
+						<th>ETCto915</th>
+						<th>AOC</th>
+						<th>SF52 Number</th>
+						<th>Selectee Name</th>
+						<th>Internal/External</th>
+						<th>Number of Records</th>
+					</tr>
+					<tr ng-repeat="detail in inventory_opm_Data">
+						<td > {{ detail.organization }}</td>
+						<td > {{ detail.hiring_trackingid }}</td>
+						<td > {{ detail.hr_speclst_assigned_to }}</td>
+						<td > {{ detail.sec_priority }}</td>
+						<td > {{ detail.position_title }}</td>
+						<td > {{ detail.pd_mr }}</td>
+						<td > {{ detail.point_of_contact }}</td>
+						<td > {{ detail.grade }}</td>
+						<td > {{ detail.status }}</td>
+						<td > {{ detail.etc }}</td>
+						<td > {{ detail.etc_to915 }}</td>
+						<td > {{ detail.aoc }}</td>
+						<td > {{ detail.sf52_number }}</td>
+						<td > {{ detail.selectee_name }}</td>
+						<td > {{ detail.internal_external }}</td>
+						<td > {{ detail.number_of_records }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<div>
+		<a class="carousel-control right" href="#/inventory_organization" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</div>
+</section>
